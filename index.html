@@ -4,7 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Time Calculator</title>
+    <title>Work Time Calculator - Track Half Day & Full Day Office Hours Online</title>
+
+    <!-- Primary SEO meta tags -->
+    <meta name="description" content="Free online Work Time Calculator. Enter your punch-in time to instantly see when your half day and full day complete, with a live countdown and progress bar. No signup needed.">
+    <meta name="keywords" content="work time calculator, office hours calculator, punch in punch out calculator, half day calculator, full day calculator, working hours tracker, employee time calculator">
+    <meta name="author" content="Tarun Patidar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Canonical URL: replace with your actual domain -->
+    <link rel="canonical" href="https://tarun16050.github.io/workTime/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tarun16050.github.io/workTime/">
+    <meta property="og:title" content="Work Time Calculator - Track Half Day & Full Day Office Hours Online">
+    <meta property="og:description" content="Enter your punch-in time to instantly see when your half day and full day complete, with a live countdown and progress bar.">
+    <meta property="og:image" content="https://www.example.com/og-image.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tarun16050.github.io/workTime/">
+    <meta name="twitter:title" content="Work Time Calculator - Track Half Day & Full Day Office Hours Online">
+    <meta name="twitter:description" content="Enter your punch-in time to instantly see when your half day and full day complete, with a live countdown and progress bar.">
+    <meta name="twitter:image" content="https://www.example.com/og-image.png">
+
+    <!-- Favicon (add your own icon files) -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Structured data: helps Google understand this is a free web tool -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Work Time Calculator",
+      "url": "https://tarun16050.github.io/workTime/",
+      "description": "Free online tool to calculate half day and full day work completion time from a punch-in time, with a live countdown and progress tracking.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Tarun Patidar"
+      }
+    }
+    </script>
 
     <style>
         :root {
@@ -331,6 +382,95 @@
             font-weight: 700;
         }
 
+        .info-section {
+            padding: 32px 28px;
+            border-top: 1px solid var(--line);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .info-heading {
+            margin: 0;
+            color: var(--ink);
+            font-size: clamp(22px, 3vw, 28px);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .about-card {
+            position: relative;
+            margin: 16px 0 30px;
+            padding: 20px 22px 20px 24px;
+            border: 1px solid rgba(37, 99, 235, 0.16);
+            border-radius: 12px;
+            background: #f4f8ff;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 4px;
+            background: linear-gradient(var(--primary), var(--accent));
+        }
+
+        .about-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .faq-item {
+            display: grid;
+            grid-template-columns: 32px 1fr;
+            gap: 14px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #ffffff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(37, 99, 235, 0.35);
+            box-shadow: 0 8px 22px rgba(23, 32, 51, 0.07);
+            transform: translateY(-1px);
+        }
+
+        .faq-number {
+            display: grid;
+            width: 32px;
+            height: 32px;
+            place-items: center;
+            border-radius: 50%;
+            background: #eaf1ff;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .faq-question {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .faq-answer {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
         @media (max-width: 760px) {
             body {
                 align-items: flex-start;
@@ -357,6 +497,14 @@
 
             .summary-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .info-section {
+                padding: 24px;
+            }
+
+            .about-card {
+                padding: 18px 18px 18px 22px;
             }
         }
     </style>
@@ -418,6 +566,43 @@
 
             <div class="results" id="result">
                 <div class="empty-state">Your working time summary will appear here.</div>
+            </div>
+        </section>
+
+        <section class="info-section" aria-labelledby="about-heading">
+            <h2 class="info-heading" id="about-heading">About this Work Time Calculator</h2>
+            <div class="about-card">
+                <p>
+                This free work time calculator helps you track your office hours in real time. Just enter your
+                punch-in time and set your preferred half day and full day durations — the tool instantly shows
+                when each milestone completes, how much time is remaining, and a live progress bar so you always
+                know where you stand during your workday.
+                </p>
+            </div>
+
+            <h2 class="info-heading" id="faq-heading">Frequently Asked Questions</h2>
+            <div class="faq-grid" aria-labelledby="faq-heading">
+                <article class="faq-item">
+                    <span class="faq-number" aria-hidden="true">01</span>
+                    <div>
+                        <strong class="faq-question">How do I calculate my half day and full day completion time?</strong>
+                        <p class="faq-answer">Enter your start (punch-in) time, confirm or adjust the half day and full day duration fields, and click Calculate. The tool shows the exact clock time each milestone completes.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <span class="faq-number" aria-hidden="true">02</span>
+                    <div>
+                        <strong class="faq-question">Can I change the default working hours?</strong>
+                        <p class="faq-answer">Yes. The half day and full day duration fields are editable, so you can match your company's actual working-hour policy.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <span class="faq-number" aria-hidden="true">03</span>
+                    <div>
+                        <strong class="faq-question">Is this work time calculator free to use?</strong>
+                        <p class="faq-answer">Yes, it's completely free, works in your browser, and doesn't require any sign-up or installation.</p>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
