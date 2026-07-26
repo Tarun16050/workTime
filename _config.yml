@@ -1,0 +1,5 @@
+# Minimal config to ensure GitHub Pages processes the site through Jekyll
+# This can help with correct content-type handling for sitemap.xml
+include:
+  - sitemap.xml
+  - robots.txt
